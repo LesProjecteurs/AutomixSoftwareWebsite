@@ -1,0 +1,19 @@
+{
+  "name": "automix_software_website",
+  "version": "0.1.0",
+  "description": "Website for Automix Software",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "ejs": "^2.5.6",
+    "express": "^4.15.2"
+  },
+  "author": "LesProjecteurs",
+  "contributors": [
+    "Maxime Stevenot <stevenot@ecole.ensicaen.fr>"
+  ],
+  "license": "MIT"
+}

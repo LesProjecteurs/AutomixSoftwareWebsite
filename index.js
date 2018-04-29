@@ -32,11 +32,12 @@ app.get("/", async (req, res) => {
     res.render("pages/index", { dlcounter: counter ? counter.downloads : null });
 });
 
-app.get("/api/incdlcounter", (req, res) => {
+app.post("/api/incdlcounter", (req, res) => {
+    console.log("+1 download");
     counterManager
         .IncrementDownloadsCounter()
-        .then(() => {
-            res.sendStatus(200);
+        .then((value) => {
+            res.status(200).send({ dlCounter: value });
         })
         .catch(err => {
             console.log(err);

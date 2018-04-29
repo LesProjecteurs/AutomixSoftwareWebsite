@@ -28,6 +28,6 @@ exports.IncrementDownloadsCounter = function () {
         counter.downloads += 1;
         counter.save();
 
-        return resolve("Counter updated");
+        return resolve(counter.downloads);
     });
 };

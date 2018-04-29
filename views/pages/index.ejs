@@ -110,9 +110,9 @@
                 </p>
             </div>
             <div class="three columns action">
-                <a href="./dlcounter.php" class="button download-button" download>
+                <a id="dlbutton" href="#" class="button download-button" download>
                     <span class="download-icon"></span>Download</a>
-                <p>Number of downloads : <%= (dlcounter) ? dlcounter : '' %></p>
+                <p class="dlcounter">Already <span id="counterValue"><%= (dlcounter) ? dlcounter : 'many' %></span> downloads</p>
             </div>
         </div>
     </section>

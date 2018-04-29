@@ -1,14 +1,21 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
-const counterManager = require("./services/counterManager");
 const keys = require("./config/keys");
 
-mongoose.connect(keys.mongoURI);
-
-const app = express();
-
 require("./models/Counter");
+
+mongoose.connect(keys.mongoURI).then(
+    () => {
+        console.log("Connected to database : " + mongoose.connection.db.databaseName);
+    },
+    err => {
+        console.log(err);
+    }
+);
+
+const counterManager = require("./services/counterManager");
+const app = express();
 
 app.set("port", (process.env.PORT || 5000));
 app.set("views", path.join(__dirname, "views"));
@@ -20,8 +27,8 @@ app.listen(app.get("port"), function () {
 
 app.use(express.static(__dirname + "/public"));
 
-app.get("/", (req, res) => {
-    const counter = counterManager.getCounter();
+app.get("/", async (req, res) => {
+    const counter = await counterManager.getCounter();
     res.render("pages/index", { dlcounter: counter ? counter.downloads : null });
 });
 
@@ -37,20 +44,20 @@ app.get("/api/incdlcounter", (req, res) => {
         });
 });
 
-//404 handler
-app.use(function (req, res, next) {
-    const err = new Error("Not Found");
-    err.statusCode = 404;
-    next(err);
-});
+// //404 handler
+// app.use(function (req, res, next) {
+//     const err = new Error("Not Found");
+//     err.statusCode = 404;
+//     next(err);
+// });
 
-//error handler
-app.use(function (err, req, res) {
-    console.error(err.message);
+// //error handler
+// app.use(function (err, req, res) {
+//     console.error(err);
 
-    if (!err.statusCode) {
-        err.statusCode = 500;
-    }
+//     // if (!err.statusCode) {
+//     //     err.statusCode = 500;
+//     // }
 
-    res.status(err.statusCode).send("ERROR " + err.statusCode);
-});
+//     // res.sendStatus(err.statusCode);
+// });

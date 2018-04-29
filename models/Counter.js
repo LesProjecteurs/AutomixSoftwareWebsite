@@ -5,4 +5,4 @@ const Counter = new Schema({
     downloads: { type: Number, default: -1 }
 });
 
-mongoose.model("counter", Counter);
+mongoose.model("counter", Counter, "counter");

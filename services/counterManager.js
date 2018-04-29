@@ -3,7 +3,7 @@ const Counter = mongoose.model("counter");
 
 exports.getCounter = async function () {
 
-    let counter;
+    let counter = null;
 
     try {
         counter = await Counter.findOne();

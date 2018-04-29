@@ -7,9 +7,12 @@
   "scripts": {
     "start": "node index.js"
   },
+  "engines": {
+    "node": "^8.9.3"
+  },
   "dependencies": {
-    "ejs": "^2.5.6",
-    "express": "^4.15.2"
+    "ejs": "^2.5.9",
+    "express": "^4.16.3"
   },
   "author": "LesProjecteurs",
   "contributors": [

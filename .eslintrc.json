@@ -1,0 +1,21 @@
+{
+    "env": {
+        "es6": true,
+        "node": true,
+        "jquery": true,
+        "browser": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": 2017
+    },
+    "rules": {
+        "indent": ["warn", 4],
+        "linebreak-style": ["error", "windows"],
+        "quotes": ["warn", "double"],
+        "semi": ["error", "always"],
+        "no-unused-vars": "warn",
+        "no-console": "off"
+    }
+}

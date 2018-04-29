@@ -1,6 +1,21 @@
-var express = require("express");
+const express = require("express");
 const path = require("path");
-var app = express();
+const mongoose = require("mongoose");
+const keys = require("./config/keys");
+
+require("./models/Counter");
+
+mongoose.connect(keys.mongoURI).then(
+    () => {
+        console.log("Connected to database : " + mongoose.connection.db.databaseName);
+    },
+    err => {
+        console.log(err);
+    }
+);
+
+const counterManager = require("./services/counterManager");
+const app = express();
 
 app.set("port", (process.env.PORT || 5000));
 app.set("views", path.join(__dirname, "views"));
@@ -12,22 +27,38 @@ app.listen(app.get("port"), function () {
 
 app.use(express.static(__dirname + "/public"));
 
-app.get("/", (req, res) => res.render("pages/index"));
-
-//404 handler
-app.use(function (req, res, next) {
-    const err = new Error("Not Found");
-    err.statusCode = 404;
-    next(err);
+app.get("/", async (req, res) => {
+    const counter = await counterManager.getCounter();
+    res.render("pages/index", { dlcounter: counter ? counter.downloads : null });
 });
 
-//error handler
-app.use(function (err, req, res) {
-    console.error(err.message);
-
-    if (!err.statusCode) {
-        err.statusCode = 500;
-    }
-
-    res.status(err.statusCode).send("ERROR " + err.statusCode);
+app.post("/api/incdlcounter", (req, res) => {
+    console.log("+1 download");
+    counterManager
+        .IncrementDownloadsCounter()
+        .then((value) => {
+            res.status(200).send({ dlCounter: value });
+        })
+        .catch(err => {
+            console.log(err);
+            res.sendStatus(500);
+        });
 });
+
+// //404 handler
+// app.use(function (req, res, next) {
+//     const err = new Error("Not Found");
+//     err.statusCode = 404;
+//     next(err);
+// });
+
+// //error handler
+// app.use(function (err, req, res) {
+//     console.error(err);
+
+//     // if (!err.statusCode) {
+//     //     err.statusCode = 500;
+//     // }
+
+//     // res.sendStatus(err.statusCode);
+// });

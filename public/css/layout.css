@@ -567,6 +567,10 @@ ul.features li:nth-child(even) { }
     color: #A9B5C0;
 }
 
+#download .dlcounter {
+    text-align: center;
+}
+
 
 /* ------------------------------------------------------------------
 /* h. Testimonials

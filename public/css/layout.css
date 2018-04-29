@@ -100,7 +100,7 @@ header .header-social li {
     margin-right: 20px;
 }
 header .header-social li a { color: #fff; }
-header .header-social li a:hover { color: #11ABB0; }
+header .header-social li a:hover { color: #B0172E; }
 
 /* primary navigation
 --------------------------------------------------------------------- */
@@ -481,6 +481,18 @@ ul.features li:nth-child(even) { }
     filter:alpha(opacity=100);
 }
 
+.item .memberFunction, .memberName {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.item .memberFunction {
+    font-style: italic;
+    font-weight: normal;
+    font-size: smaller;
+}
 
 /* ------------------------------------------------------------------ */
 /* g. Call To Action Section
@@ -904,7 +916,17 @@ footer .copyright {
 }
 #go-top a:hover { background: #A32638; }
 
+#github-ad {
+    padding-top: 50px;
+}
 
+#github-ad p {
+    font-size: larger;
+}
+
+#github-ad a {
+    font-weight: 600;
+}
 /* ------------------------------------------------------------------ */
 /* k. lightbox
 /* ------------------------------------------------------------------ */

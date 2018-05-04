@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../partials/head.ejs %>
+</head>
+
+<body>
+
+    <div id="preloader">
+        <div id="status">
+            <img src="images/preloader.gif" height="64" width="64" alt="">
+        </div>
+    </div>
+
+    <header>
+        <% include ../partials/header.ejs %>
+    </header>
+
+    <section id="hero">
+        <div class="row">
+            <div class="twelve columns">
+                <div class="hero-text">
+                    <h1 class="responsive-headline">Automix Software</h1>
+                    <p>We created a virtual and intelligent DJ to give you the opportunity to create nice mixes of your favorite
+                        music tracks so the music never stops!</p>
+                </div>
+                <div class="buttons">
+                    <a class="trial button smoothscroll" href="#download">Try now</a>
+                    <a class="button learn-more smoothscroll" href="#features">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id='features'>
+        <div class="row feature design">
+            <div class="six columns right">
+                <h3>User Friendly</h3>
+                <p class="p-justified">
+                    Our software is available in English and in French. Its design aims for accessibility and intuitive use. You can install
+                    it easily thanks to our downloadable installer, and you won't need anything else
+                    <sup>*</sup>. Come and try it!
+                </p>
+                <p class="install-infos">
+                    &midast; You must have .NET Framework 4.6.1 or higher and ACM drivers installed, both are usually included in Microsoft Windows
+                    (Seven and higher).
+                </p>
+            </div>
+            <div class="six columns feature-media left">
+                <img src="/images/AutomixUI.png" alt="" />
+            </div>
+        </div>
+        <div class="row feature responsive">
+            <div class="six columns left">
+                <h3>
+                    <i>"It's better than some DJs"</i>
+                    <br>Léa P., 2017</h3>
+                <p class="p-justified">
+                    Whatever the music you prefer, Automix allows you to create a coherent set with it. Enjoyable transitions and an intelligent
+                    sorting process are the key to creating a custom mix in a few clicks. All the music you like finally
+                    gathered in the same mix.
+                </p>
+            </div>
+            <div class="six columns feature-media right">
+                <img src="/images/club.jpg" alt="" />
+            </div>
+        </div>
+        <div class="row feature video">
+
+            <div class="six columns left">
+                <h3>MP3 Export</h3>
+
+                <p class="p-justified">
+                    Automix Software also allows you to export your creations in MP3 format so you can share them or use them.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="video">
+        <div class="row section-head">
+            <h1>Preview</h1>
+        </div>
+        <div class="row">
+            <div class="fluid-video-wrapper">
+                <div>
+                    <iframe src="https://player.vimeo.com/video/267114956" style="position:absolute;top:0;left:0;width:100%;height:100%;"
+                        frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                </div>
+                <script src="https://player.vimeo.com/api/player.js"></script>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="download">
+        <div class="row">
+            <div class="two columns header-col">
+                <h1>
+                    <span>Download</span>
+                </h1>
+            </div>
+            <div class="seven columns">
+                <h2>Automix Software <%= (releaseVersion) ? releaseVersion : "x.x.x" %></h2>
+                <p>Available now for
+                    <span class="download-icon"></span>
+                    <span>Windows</span> (Seven and higher)
+                    <br> Requires .NET Framework 4.6.1
+                    <a href="https://www.microsoft.com/net/download/framework" class="dependency-link">
+                        <span class="dependency-icon"></span>Download here</a>
+                </p>
+            </div>
+            <div class="three columns action">
+                <a id="dlbutton" href=<%= (releaseDlUrl) ? releaseDlUrl : "#" %> class="button download-button" download>
+                    <span class="download-icon"></span>Download</a>
+                <p class="dlcounter">Already
+                    <span id="counterValue">
+                        <%= (dlcounter) ? dlcounter : 'many' %>
+                    </span> downloads</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="screenshots">
+
+        <div class="row section-head">
+            <h1>Development Team</h1>
+            <p>
+                We are a team of 5 IT students from ENSICAEN Engineering School determined to provide every user with a software that creates
+                professional quality musical mixes. In 2018 5 other students joined the project to continue the work and
+                provide a better user experience.
+            </p>
+        </div>
+        <div class="team" id="team-slider">
+
+            <div class="item">
+                <div class="item-wrap">
+                    <img src="images/team/maxime.jpg" alt="maxime">
+                    <div class="overlay"></div>
+                    <div class="link-icon">
+                        <p class="memberName">Maxime Stevenot</p>
+                        <p class="memberFunction">Owner</p>
+                        <p class="team-logos">
+                            <a href="https://www.linkedin.com/in/maximestevenot/" target="_blank">
+                                <i class="fa fa-linkedin fa-2x" aria-hidden="true"></i>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-wrap">
+                    <img src="images/team/louis.jpg" alt="louis">
+                    <div class="overlay"></div>
+                    <div class="link-icon">
+                        <p class="memberName">Louis Carlier</p>
+                        <p class="memberFunction">Owner</p>
+                        <p class="team-logos">
+                            <a href="https://www.linkedin.com/in/louis-carlier-15b543150/" target="_blank">
+                                <i class="fa fa-linkedin fa-2x" aria-hidden="true"></i>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-wrap">
+                    <img src="images/team/guillaume.jpg" alt="guillaume">
+                    <div class="overlay"></div>
+                    <div class="link-icon">
+                        <p class="memberName">Guillaume Hannes</p>
+                        <p class="memberFunction">Owner</p>
+                        <p class="team-logos">
+                            <a href="https://www.linkedin.com/in/guillaume-hannes/" target="_blank">
+                                <i class="fa fa-linkedin fa-2x" aria-hidden="true"></i>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-wrap">
+                    <img src="images/team/pierre.jpg" alt="pierre">
+                    <div class="overlay"></div>
+                    <div class="link-icon">
+                        <p class="memberName">Pierre Gabon</p>
+                        <p class="memberFunction">Owner</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-wrap">
+                    <img src="images/team/jordan.jpg" alt="jordan">
+                    <div class="overlay"></div>
+                    <div class="link-icon">
+                        <p class="memberName">Jordan Ernult</p>
+                        <p class="memberFunction">Owner</p>
+                        <p class="team-logos">
+                            <a href="https://www.linkedin.com/in/jordan-ernult/" target="_blank">
+                                <i class="fa fa-linkedin fa-2x" aria-hidden="true"></i>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-wrap">
+                    <img src="images/team/niels.jpg" alt="niels">
+                    <div class="overlay"></div>
+                    <div class="link-icon">
+                        <p class="memberName">Niels Hecquard</p>
+                        <p class="memberFunction">Developer</p>
+                        <p class="team-logos">
+                            <a href="https://www.linkedin.com/in/niels-hecquard-b7560710b/" target="_blank">
+                                <i class="fa fa-linkedin fa-2x" aria-hidden="true"></i>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-wrap">
+                    <img src="images/team/raphael.jpg" alt="raphael">
+                    <div class="overlay"></div>
+                    <div class="link-icon">
+                        <p class="memberName">Raphaël Herbert</p>
+                        <p class="memberFunction">Developer</p>
+                        <p class="team-logos">
+                            <a href="https://www.linkedin.com/in/rapha%C3%ABl-herbert-173b40154/" target="_blank">
+                                <i class="fa fa-linkedin fa-2x" aria-hidden="true"></i>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-wrap">
+                    <img src="images/team/cedric.jpg" alt="cedric">
+                    <div class="overlay"></div>
+                    <div class="link-icon">
+                        <p class="memberName">Cédric Masson</p>
+                        <p class="memberFunction">Developer</p>
+                        <p class="team-logos">
+                            <a href="https://www.linkedin.com/in/c%C3%A9dric-masson-b2b099150/" target="_blank">
+                                <i class="fa fa-linkedin fa-2x" aria-hidden="true"></i>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-wrap">
+                    <img src="images/team/richard.jpg" alt="richard">
+                    <div class="overlay"></div>
+                    <div class="link-icon">
+                        <p class="memberName">Richard Nicolas</p>
+                        <p class="memberFunction">Developer</p>
+                        <p class="team-logos">
+                            <a href="https://www.linkedin.com/in/richard-nicolas-989014155/" target="_blank">
+                                <i class="fa fa-linkedin fa-2x" aria-hidden="true"></i>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-wrap">
+                    <img src="images/team/anaelle.jpg" alt="anaelle">
+                    <div class="overlay"></div>
+                    <div class="link-icon">
+                        <p class="memberName">Anaelle Troadec</p>
+                        <p class="memberFunction">Developer</p>
+                        <p class="team-logos">
+                            <a href="https://www.linkedin.com/in/ana%C3%ABlle-troadec-170326152/" target="_blank">
+                                <i class="fa fa-linkedin fa-2x" aria-hidden="true"></i>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="github-ad" class="row section-head">
+            <h1>BECOME A CONTRIBUTOR</h1>
+            <p>
+                Automix Software is now open source, visit our
+                <a href="https://github.com/lesprojecteurs/AutomixSoftware" target="_blank">
+                    <i class="fa fa-github" aria-hidden="true"></i> Github</a> for more information.
+            </p>
+        </div>
+
+    </section>
+    <!-- Team End -->
+
+    <footer>
+        <% include ../partials/footer.ejs %>
+    </footer>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
+    <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/js/jquery.flexslider.js"></script>
+    <script src="/js/waypoints.js"></script>
+    <script src="/js/jquery.fittext.js"></script>
+    <script src="/js/jquery.fitvids.js"></script>
+    <script src="/js/imagelightbox.js"></script>
+    <script src="/js/jquery.prettyPhoto.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/team.js"></script>
+
+</body>
+
+</html>

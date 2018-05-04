@@ -1,0 +1,29 @@
+.team {
+	width: 70%;
+	margin: 100px auto;
+}
+	
+@media (max-width: 780px) {
+	.team {
+		width: 100%;
+		margin: 10px auto;
+	}
+}
+
+.slick-slide {
+	margin: 0px 20px;
+}
+
+.slick-slide img {
+	width: 100%;
+	opacity: 0.8;
+}
+
+.slick-prev:before,
+.slick-next:before {
+	color: black;
+}
+
+.slick-center img {
+	opacity: 1;
+}

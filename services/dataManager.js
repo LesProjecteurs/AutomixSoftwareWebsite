@@ -1,20 +1,6 @@
 const mongoose = require("mongoose");
 const Counter = mongoose.model("counter");
-
-exports.getCounter = async function () {
-
-    let counter = null;
-
-    try {
-        counter = await Counter.findOne();
-    }
-    catch (error) {
-        console.log(error);
-        return null;
-    }
-
-    return counter;
-};
+const ReleaseInfo = mongoose.model("releaseinfo");
 
 exports.IncrementDownloadsCounter = function () {
     return new Promise(async (resolve, reject) => {
@@ -30,4 +16,28 @@ exports.IncrementDownloadsCounter = function () {
 
         return resolve(counter.downloads);
     });
+};
+
+exports.getCounter = async function () {
+    return await getData(Counter);
+};
+
+exports.getReleaseInfo = async function () {
+    return await getData(ReleaseInfo);
+};
+
+
+async function getData(model) {
+
+    let data = null;
+
+    try {
+        data = await model.findOne();
+    }
+    catch (error) {
+        console.log(error);
+        return null;
+    }
+
+    return data;
 };

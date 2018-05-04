@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const keys = require("./config/keys");
 
 require("./models/Counter");
+require("./models/ReleaseInfo");
 
 mongoose.connect(keys.mongoURI).then(
     () => {
@@ -14,7 +15,7 @@ mongoose.connect(keys.mongoURI).then(
     }
 );
 
-const counterManager = require("./services/counterManager");
+const dataManager = require("./services/dataManager");
 const app = express();
 
 app.set("port", (process.env.PORT || 5000));
@@ -28,13 +29,21 @@ app.listen(app.get("port"), function () {
 app.use(express.static(__dirname + "/public"));
 
 app.get("/", async (req, res) => {
-    const counter = await counterManager.getCounter();
-    res.render("pages/index", { dlcounter: counter ? counter.downloads : null });
+    const counter = await dataManager.getCounter();
+    const releaseInfo = await dataManager.getReleaseInfo();
+
+    const parameters = {
+        dlcounter: counter ? counter.downloads : null,
+        releaseVersion: releaseInfo ? releaseInfo.versionNumber : null,
+        releaseDlUrl: releaseInfo ? releaseInfo.downloadUrl : null
+    };
+
+    res.render("pages/index", parameters);
 });
 
 app.post("/api/incdlcounter", (req, res) => {
     console.log("+1 download");
-    counterManager
+    dataManager
         .IncrementDownloadsCounter()
         .then((value) => {
             res.status(200).send({ dlCounter: value });

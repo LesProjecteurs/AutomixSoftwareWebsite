@@ -54,20 +54,17 @@ app.post("/api/incdlcounter", (req, res) => {
         });
 });
 
-// //404 handler
-// app.use(function (req, res, next) {
-//     const err = new Error("Not Found");
-//     err.statusCode = 404;
-//     next(err);
-// });
+//404 handler
+app.get("*", function (req, res, next) {
+    const err = new Error("Not Found");
+    err.statusCode = 404;
+    throw err;
+});
 
-// //error handler
-// app.use(function (err, req, res) {
-//     console.error(err);
-
-//     // if (!err.statusCode) {
-//     //     err.statusCode = 500;
-//     // }
-
-//     // res.sendStatus(err.statusCode);
-// });
+//error handler
+app.use(function (err, req, res, next) {
+    if (err && err.statusCode != "404") {
+        console.log(err);
+    }
+    res.status(err.statusCode ? err.statusCode : "500").send(err.message);
+});

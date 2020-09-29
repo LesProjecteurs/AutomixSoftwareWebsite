@@ -1,6 +1,6 @@
 {
   "name": "automix_software_website",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Website for Automix Software",
   "private": true,
   "main": "index.js",
@@ -8,12 +8,12 @@
     "start": "node index.js"
   },
   "engines": {
-    "node": "^8.9.3"
+    "node": "^14.11.0"
   },
   "dependencies": {
-    "ejs": "^2.5.9",
-    "express": "^4.16.3",
-    "mongoose": "^5.7.5"
+    "ejs": "^2.7.4",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.7"
   },
   "author": "LesProjecteurs",
   "contributors": [
